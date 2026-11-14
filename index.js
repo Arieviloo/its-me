@@ -1,53 +1,37 @@
 const target = document.querySelectorAll('[data-anime]');
-const animationClass= 'animate';
+const animationClass = 'animate';
 
-function animeScroll(){
-  const windowTop = window.scrollY+((window.innerHeight*3)/4);
+function animeScroll() {
+  const windowTop = window.scrollY + ((window.innerHeight * 3) / 4);
 
-  target.forEach(function(element){
-    if((windowTop)>element.offsetTop){
-        element.classList.add(animationClass)
-    }else{
-        element.classList.remove(animationClass);
+  target.forEach(function (element) {
+    if (windowTop > element.offsetTop) {
+      element.classList.add(animationClass);
+    } else {
+      element.classList.remove(animationClass);
     }
-  })
+  });
 }
 
 animeScroll();
 
-if(target.length){
-  window.addEventListener('scroll',() => {
-    animeScroll();
-  })
+if (target.length) {
+  window.addEventListener('scroll', animeScroll, { passive: true });
 }
 
-$(document).ready(() => {
-  $('.effects-mouse').on('mouseenter', (e) => {
-      x=e.pageX - $(this).offset().left,
-      y=e.pageY - $(this).offset().top;
-     $(this).find('span').css({top:y,left:x}) 
-  })
+// Menu mobile (vanilla JS, sem jQuery)
+const openMenuMobile = document.querySelector('.open-menu-mobile');
+const menuMobileBtn = document.querySelector('.menu-mobile');
+const closeBtn = document.querySelector('.close');
+const listMenu = document.querySelector('.list-menu');
 
-  $('.effects-mouse').on('mouseout', (e) => {
-     x=e.pageX - $(this).offset().left,
-     y=e.pageY - $(this).offset().top;
-    $(this).find('span').css({top:y,left:x}) 
-  })
+function toggleMenu() {
+  if (openMenuMobile) {
+    const isOpen = openMenuMobile.style.display === 'flex';
+    openMenuMobile.style.display = isOpen ? 'none' : 'flex';
+  }
+}
 
-  $('.open-menu-mobile').hide();
-
-  $('.close').click(() => {
-    $('.open-menu-mobile').slideToggle();
-  });
-
-  $('.menu-mobile, .list-menu').click((event) => {
-    if (!$(event.target).hasClass('close')) {
-      $('.open-menu-mobile').slideToggle();
-    }
-  });
- });
-
-
- 
- 
-
+if (menuMobileBtn) menuMobileBtn.addEventListener('click', toggleMenu);
+if (closeBtn) closeBtn.addEventListener('click', toggleMenu);
+if (listMenu) listMenu.addEventListener('click', toggleMenu);

@@ -14,7 +14,6 @@
 }
 
 body {
-  font-family: 'Arimo', sans-serif;
   font-family: 'Plus Jakarta Sans', sans-serif;
   background-color: #1D1F24;
   color: var(--white);
@@ -84,7 +83,7 @@ li a:hover {
 }
 
 .text-main {
-  max-width: 380px;
+  max-width: 460px;
 }
 
 .text-center {
@@ -140,6 +139,70 @@ li a:hover {
   flex-wrap: wrap;
   justify-content: center;
   gap: 3px;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.chip {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid var(--green-strong);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  background: rgba(7, 231, 143, 0.06);
+  transition: background .3s, color .3s;
+}
+
+.chip:hover {
+  background: var(--primary);
+  color: var(--secundary);
+}
+
+.card-experience {
+  padding: 24px 20px;
+  border-radius: 18px;
+  border: 1px solid transparent;
+  transition: border-color .4s, background .4s;
+}
+
+.card-experience:hover {
+  border-color: rgba(7, 231, 143, 0.35);
+  background: rgba(0, 0, 0, 0.14);
+}
+
+.highlight {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, rgba(7, 231, 143, 0.16), rgba(167, 252, 238, 0.08));
+  border: 1px solid rgba(7, 231, 143, 0.35);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.headline {
+  color: var(--gray);
+  max-width: 460px;
+}
+
+.mail-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  color: var(--white);
+  border-radius: 50%;
+}
+
+.mail-icon svg {
+  width: 32px;
+  height: 32px;
 }
 
 .flex-just-wrap {
@@ -307,19 +370,20 @@ li a:hover {
   border-color: var(--secundary);
 }
 
-.open-menu-mobile{ 
+.open-menu-mobile{
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: #0F0F0F;
-  display: flex;
+  display: none;
   justify-content: center;
   flex-direction: column;
   gap: 30px;
   text-align: center;
   text-transform: uppercase;
+  z-index: 10;
 }
 
 .close {
@@ -509,6 +573,21 @@ li a:hover {
 
   .img-icon {
     width: 45px;
+  }
+
+  .mail-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .mail-icon svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .highlights {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .box-portfolio {
